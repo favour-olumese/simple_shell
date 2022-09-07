@@ -12,13 +12,13 @@ int execute(char **cmd)
 	pid_t child_pid;
 	int status;
 	char *pathway;
-	size_t arglen = _strlen(cmd[0]); /* Argument length */
+	size_t arglen; /* Argument length */
 
 	/* When users press Enter without an argument */
 	if (cmd[0] == NULL)
 		return (1);
 
-	if (strncmp("exit", cmd[0], 4) == 0)
+	if (_strncmp("exit", cmd[0], 4) == 0)
 		return (-1);
 
 	child_pid = fork();
@@ -30,6 +30,7 @@ int execute(char **cmd)
 	}
 	else if (child_pid == 0)
 	{
+		arglen = _strlen(cmd[0]);
 		pathway = malloc(10 + arglen);
 		sprintf(pathway, "/usr/bin/%s", cmd[0]);
 		if (execve(pathway, cmd, environ) == -1)
@@ -37,6 +38,7 @@ int execute(char **cmd)
 			perror("Error");
 			exit(-1);
 		}
+		free(pathway);
 	}
 	else
 		wait(&status);
