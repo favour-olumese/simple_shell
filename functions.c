@@ -36,28 +36,28 @@ char *_strcpy(char *dest, const char *src)
 }
 
 /**
- * _strcmp - function that compares two strings.
+ * _strncmp - function that compares two strings at n bytes.
  * @s1: Pointer parameter.
  * @s2: Pointer parameter.
+ * @n: Number of chars to compare.
  * Return: An integer.
  */
-int _strcmp(char *s1, char *s2)
+int _strncmp(const char *s1, const char *s2, size_t n)
 {
-	int i;
+	size_t i;
 	int diff;
 
-	if (s1 == s2)
+	i = 0;
+	while (i < n)
 	{
-		diff = 0;
-	}
-
-	for (i = 0; s1[i] != '\0' && s2[i] != '\0'; i++)
-	{
+		if (s1[i] == '\0' || s2[i] == '\0')
+			return (-1);
 		if (s1[i] != s2[i])
 		{
 			diff = s1[i] - s2[i];
-			break;
+			return (diff);
 		}
+		i++;
 	}
-	return (diff);
+	return (0);
 }
