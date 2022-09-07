@@ -12,7 +12,9 @@ int _strlen(const char *s);
 char *_strcpy(char *dest, const char *src);
 int _putchar(char c);
 void _puts(char *str);
-unsigned int nbr_spaces(char *s);
+int _strcmp(char *s1, char *s2);
 char **stringToTokens(char *str);
+int execute(char **cmd);
+char *_strcat(char *dest, char *src);
 
 #endif
