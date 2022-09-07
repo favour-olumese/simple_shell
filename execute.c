@@ -18,8 +18,8 @@ int execute(char **cmd)
 	if (cmd[0] == NULL)
 		return (1);
 
-	if (_strcmp("exit", cmd[0]) == 0)
-		return (0);
+	if (strncmp("exit", cmd[0], 4) == 0)
+		return (-1);
 
 	child_pid = fork();
 
