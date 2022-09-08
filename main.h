@@ -8,13 +8,12 @@
 #include <sys/wait.h>
 #include <string.h>
 
+void _purs(char *str);
 int _strlen(const char *s);
 char *_strcpy(char *dest, const char *src);
 int _putchar(char c);
 void _puts(char *str);
-int _strcmp(char *s1, char *s2);
+unsigned int nbr_spaces(char *s);
 char **stringToTokens(char *str);
-int execute(char **cmd);
-char *_strcat(char *dest, char *src);
 
 #endif
