@@ -1,10 +1,9 @@
 #include "main.h"
 /**
-<<<<<<< HEAD
 * execute - executes the command
 * @cmd: command to run
 * Return: 0 on success1 -1 if cmd is exit and 1 on any other error
- */
+*/
 int execute(char **cmd)
 {
 	pid_t child_pid;
@@ -38,12 +37,6 @@ int execute(char **cmd)
 * @argc: number of arguments
 * @argv: list of command line arguments
 * Return:on success 0
-=======
-* main - main simple shell.
-* @argc: number of arguments.
-* @argv: list of command line arguments.
-* Return: Always 0, -1 on error.
->>>>>>> c55f7880fc6bbb58ff171ccac2a561b9cc71a5f6
 */
 int main(int argc, char **argv)
 {
@@ -68,7 +61,7 @@ int main(int argc, char **argv)
 	if (buffer == NULL)
 	{
 		perror("Error: Unable to allocate buffer");
-		exit (1);
+		exit(1);
 	}
 	do {
 		if (isatty(fileno(stdin)))
@@ -85,8 +78,5 @@ int main(int argc, char **argv)
 	buffer[_strlen(buffer) - 1] = '\0';
 	tokens = stringToTokens(buffer);
 	response = execute(tokens);
-
 	} while (isPipe && response != -1);
-
-	return (0);
 }
